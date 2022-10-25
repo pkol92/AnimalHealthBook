@@ -3,6 +3,10 @@ export const defaultTheme = {
     // all colors
     black: '#0D0D0D',
     navy: '#004899',
+    magenta: '#E6007E',
+    white: '#FFFFFF',
+    gray100: '#C6C6C6',
+    transparent: '#ffffff00',
   },
   zIndex: {
     modal: 10,

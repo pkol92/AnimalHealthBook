@@ -1,4 +1,5 @@
 import FetchApi from '../../server/fetchAPI';
+import { Button } from '../Button/Button';
 import {
   ButtonsWrapper,
   ImgWrapper,
@@ -15,7 +16,6 @@ export const ItemsList = () => {
 
   return (
     <div>
-      {' '}
       {error ? (
         <div>Ups, something go wrong...</div>
       ) : (
@@ -31,10 +31,13 @@ export const ItemsList = () => {
                       <ItemPrice>{`Price: ${item.price.toFixed(2)} $`}</ItemPrice>
                     </div>
                     <ButtonsWrapper>
-                      <button>{'Add to card'}</button>
-                      <button>{'See details'}</button>
+                      <Button size="medium" variant="default">
+                        {'Add to card'}
+                      </Button>
+                      <Button size="medium" variant="default">
+                        {'See details'}
+                      </Button>
                     </ButtonsWrapper>
-                    {/* <ItemDescription>{item.description}</ItemDescription> */}
                   </div>
                   <ImgWrapper>
                     <ItemImg alt={item.title} src={item.image} />

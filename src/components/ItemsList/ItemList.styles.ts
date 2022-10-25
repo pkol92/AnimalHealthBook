@@ -5,20 +5,26 @@ export const ListWrapper = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
-  align-items: center;
+  align-items: baseline;
   align-content: center;
   gap: 30px;
   padding: 20px;
 `;
 
 export const ItemWrapper = styled.div`
-  display: flex;
-  flex-direction: row;
-  width: 300px;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  /* width: 350px; */
+  gap: 15px;
   align-items: center;
-  align-content: space-between;
-  gap: 20px;
+  justify-items: stretch;
+  box-sizing: border-box;
+  padding: 10px;
+`;
+
+export const ContentWrapper = styled.div`
+  display: grid;
+  grid-template-columns: 2fr 1fr;
 `;
 
 export const ImgWrapper = styled.div`
@@ -27,8 +33,14 @@ export const ImgWrapper = styled.div`
   display: flex;
 `;
 
+export const ItemImg = styled.img`
+  width: 100%;
+  object-fit: contain;
+`;
+
 export const ItemTitle = styled.h4`
   display: flex;
+  max-width: 300px;
 `;
 
 export const ItemPrice = styled.h5`
@@ -40,4 +52,14 @@ export const ItemDescription = styled.p`
   text-align: justify;
   height: 100px;
   overflow-y: scroll;
+`;
+
+export const ButtonsWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: center;
+  gap: 15px;
 `;

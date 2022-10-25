@@ -8,7 +8,7 @@ interface ItemCard {
   price: number;
   description: string;
   category: string;
-  image: ReactNode;
+  image: string | undefined;
   rating: {
     rate: number;
     count: number;

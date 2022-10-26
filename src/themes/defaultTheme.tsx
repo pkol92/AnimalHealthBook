@@ -11,6 +11,7 @@ export const defaultTheme = {
   zIndex: {
     modal: 10,
     background: -1,
+    button: 2,
   },
   boxShadows: {},
   gradient: {},

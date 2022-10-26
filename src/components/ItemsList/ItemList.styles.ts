@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const ListWrapper = styled.div`
@@ -12,27 +13,19 @@ export const ListWrapper = styled.div`
 `;
 
 export const ItemWrapper = styled.div`
-  display: grid;
-  grid-template-columns: 3fr 1fr;
+  display: flex;
   /* width: 350px; */
-  gap: 15px;
+  flex-direction: column;
   align-items: center;
-  justify-items: stretch;
-  box-sizing: border-box;
-  padding: 10px;
-  background-color: red;
-  height: 200px;
-`;
-
-export const ContentWrapper = styled.div`
-  display: grid;
-  grid-template-columns: 2fr 1fr;
+  gap: 10px;
+  width: 250px;
 `;
 
 export const ImgWrapper = styled.div`
-  width: 100px;
-  height: 100px;
+  width: 200px;
+  height: 200px;
   display: flex;
+  position: relative;
 `;
 
 export const ItemImg = styled.img`
@@ -40,33 +33,35 @@ export const ItemImg = styled.img`
   object-fit: contain;
 `;
 
-export const ItemTitle = styled.h4`
-  display: flex;
-  max-width: 300px;
-`;
-
-export const ItemPrice = styled.h5`
+export const ItemTitle = styled.h5`
   display: flex;
 `;
 
-export const ItemDescription = styled.p`
+export const ItemPrice = styled.h4`
   display: flex;
-  text-align: justify;
-  height: 100px;
-  overflow-y: scroll;
+  color: ${({ theme }) => theme.colors.magenta};
 `;
 
-export const ButtonsWrapper = styled.div`
-  display: flex;
+export const ButtonsWrapper = styled.div<{ isHidden: boolean }>`
+  position: absolute;
+  display: ${({ isHidden }) => (isHidden ? 'none' : 'flex')};
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   align-content: center;
   gap: 15px;
+  height: 200px;
+  background-color: rgb(0 72 153 / 42%);
+  z-index: ${({ theme }) => theme.zIndex.button};
 `;
 
 export const MainDataWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 20px;
+`;
+
+export const LinkWrapper = styled(Link)`
+  text-decoration: none;
 `;

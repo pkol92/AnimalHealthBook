@@ -24,7 +24,7 @@ export const NavigationWrapper = styled.div`
 `;
 
 export const ChildrenWrapper = styled.div`
-  padding: 40px 80px;
+  padding: 100px 80px;
 `;
 
 export const HeaderWrapper = styled.div`

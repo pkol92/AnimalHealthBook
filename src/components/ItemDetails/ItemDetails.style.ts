@@ -20,8 +20,6 @@ export const ItemWrapper = styled.div`
   justify-items: stretch;
   box-sizing: border-box;
   padding: 10px;
-  background-color: red;
-  height: 200px;
 `;
 
 export const ContentWrapper = styled.div`
@@ -33,6 +31,7 @@ export const ImgWrapper = styled.div`
   width: 100px;
   height: 100px;
   display: flex;
+  justify-self: center;
 `;
 
 export const ItemImg = styled.img`
@@ -52,8 +51,6 @@ export const ItemPrice = styled.h5`
 export const ItemDescription = styled.p`
   display: flex;
   text-align: justify;
-  height: 100px;
-  overflow-y: scroll;
 `;
 
 export const ButtonsWrapper = styled.div`
@@ -64,9 +61,4 @@ export const ButtonsWrapper = styled.div`
   align-items: center;
   align-content: center;
   gap: 15px;
-`;
-
-export const MainDataWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
 `;

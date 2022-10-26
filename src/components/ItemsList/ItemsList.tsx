@@ -1,5 +1,8 @@
+import { Link } from 'react-router-dom';
+
 import useFetchApi, { ItemCard } from '../../server/useFetchAPI';
 import { Button } from '../Button/Button';
+import { Navigation } from '../Navigation/Navigation';
 import {
   ButtonsWrapper,
   ImgWrapper,
@@ -9,6 +12,7 @@ import {
   ItemTitle,
   ItemWrapper,
   ListWrapper,
+  MainDataWrapper,
 } from './ItemList.styles';
 
 export const ItemsList = () => {
@@ -29,23 +33,25 @@ export const ItemsList = () => {
             <ListWrapper>
               {data.map((item) => (
                 <ItemWrapper key={item.id}>
-                  <div>
-                    <div>
-                      <ItemTitle>{item.title}</ItemTitle>
-                      <ItemPrice>{`Price: ${item.price.toFixed(2)} $`}</ItemPrice>
-                    </div>
-                    <ButtonsWrapper>
-                      <Button size="medium" variant="default">
-                        {'Add to card'}
-                      </Button>
-                      <Button size="medium" variant="default">
-                        {'See details'}
-                      </Button>
-                    </ButtonsWrapper>
-                  </div>
                   <ImgWrapper>
                     <ItemImg alt={item.title} src={item.image} />
                   </ImgWrapper>
+                  <div>
+                    <MainDataWrapper>
+                      <ItemTitle>{item.title}</ItemTitle>
+                      <ItemPrice>{`Price: ${item.price.toFixed(2)} $`}</ItemPrice>
+                    </MainDataWrapper>
+                    {/* <ButtonsWrapper>
+                      <Button size="medium" variant="default">
+                        {'Add to card'}
+                      </Button>
+                      <Link to={`/${item.id}`}>
+                        <Button size="medium" variant="default">
+                          {'See details'}
+                        </Button>
+                      </Link>
+                    </ButtonsWrapper> */}
+                  </div>
                 </ItemWrapper>
               ))}
             </ListWrapper>

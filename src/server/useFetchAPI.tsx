@@ -1,8 +1,8 @@
-import { ReactNode, useEffect, useState } from 'react';
+import { FC, ReactNode, useEffect, useState } from 'react';
 
 import axios from 'axios';
 
-interface ItemCard {
+export interface ItemCard {
   id: number;
   title: string;
   price: number;
@@ -15,18 +15,20 @@ interface ItemCard {
   };
 }
 
-const FetchApi = () => {
-  const [shopData, setShopData] = useState<Array<ItemCard>>([]);
+const URL = 'https://fakestoreapi.com/products';
+
+const useFetchApi = (id?: string) => {
+  const [data, setData] = useState<Array<ItemCard> | ItemCard>();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
 
-  const URL = 'https://fakestoreapi.com/products';
+  const finalURL = id ? `${URL}/${id}` : URL;
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const { data: response } = await axios.get(URL);
-        setShopData(response);
+        const { data: response } = await axios.get(finalURL);
+        setData(response);
         setError(false);
       } catch (err) {
         console.log(err);
@@ -36,9 +38,9 @@ const FetchApi = () => {
     };
 
     fetchData();
-  }, []);
+  }, [finalURL]);
 
-  return { shopData, loading, error };
+  return { data, loading, error };
 };
 
-export default FetchApi;
+export default useFetchApi;

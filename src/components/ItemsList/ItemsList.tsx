@@ -1,4 +1,4 @@
-import FetchApi from '../../server/fetchAPI';
+import useFetchApi, { ItemCard } from '../../server/useFetchAPI';
 import { Button } from '../Button/Button';
 import {
   ButtonsWrapper,
@@ -12,7 +12,11 @@ import {
 } from './ItemList.styles';
 
 export const ItemsList = () => {
-  const { shopData, error, loading } = FetchApi();
+  const { data, error, loading } = useFetchApi() as {
+    data: Array<ItemCard>;
+    error: boolean;
+    loading: boolean;
+  };
 
   return (
     <div>
@@ -23,7 +27,7 @@ export const ItemsList = () => {
           {loading && <p>Loading data...</p>}
           {!loading && (
             <ListWrapper>
-              {shopData.map((item) => (
+              {data.map((item) => (
                 <ItemWrapper key={item.id}>
                   <div>
                     <div>

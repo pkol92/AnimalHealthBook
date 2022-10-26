@@ -78,4 +78,8 @@ export const StyledButton = styled.button<StyledButtonProps>`
   text-decoration: none;
   cursor: ${(props) => props.disabled && 'not-allowed'};
   text-align: ${({ textAlign = 'center' }) => textAlign};
+
+  :hover {
+    background-color: ${({ theme }) => theme.colors.green};
+  }
 `;

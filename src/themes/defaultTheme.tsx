@@ -6,6 +6,7 @@ export const defaultTheme = {
     magenta: '#E6007E',
     white: '#FFFFFF',
     gray100: '#C6C6C6',
+    green: '#028d60',
     transparent: '#ffffff00',
   },
   zIndex: {

@@ -13,23 +13,16 @@ export const ListWrapper = styled.div`
 
 export const ItemWrapper = styled.div`
   display: grid;
-  grid-template-columns: 3fr 1fr;
+  grid-template-columns: 2fr 3fr;
   /* width: 350px; */
-  gap: 15px;
-  align-items: center;
-  justify-items: stretch;
+  gap: 30px;
   box-sizing: border-box;
   padding: 10px;
 `;
 
-export const ContentWrapper = styled.div`
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-`;
-
 export const ImgWrapper = styled.div`
-  width: 100px;
-  height: 100px;
+  /* width: 100px;
+  height: 100px; */
   display: flex;
   justify-self: center;
 `;
@@ -61,4 +54,13 @@ export const ButtonsWrapper = styled.div`
   align-items: center;
   align-content: center;
   gap: 15px;
+`;
+
+export const ContentWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  padding: 0 40px;
+  gap: 20px;
 `;

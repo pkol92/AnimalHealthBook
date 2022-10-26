@@ -5,6 +5,7 @@ import { Button } from '../Button/Button';
 import { Navigation } from '../Navigation/Navigation';
 import {
   ButtonsWrapper,
+  ContentWrapper,
   ImgWrapper,
   ItemDescription,
   ItemImg,
@@ -22,7 +23,10 @@ export const ItemDetails = () => {
     <Navigation>
       {pickedProduct ? (
         <ItemWrapper>
-          <div>
+          <ImgWrapper>
+            <ItemImg alt={pickedProduct.title} src={pickedProduct.image} />
+          </ImgWrapper>
+          <ContentWrapper>
             <div>
               <ItemTitle>{pickedProduct.title}</ItemTitle>
               <ItemPrice>{`Price: ${pickedProduct.price.toFixed(2)} $`}</ItemPrice>
@@ -32,11 +36,11 @@ export const ItemDetails = () => {
               <Button size="medium" variant="default">
                 {'Add to card'}
               </Button>
+              <Button size="medium" variant="default">
+                {'Add to wish list'}
+              </Button>
             </ButtonsWrapper>
-          </div>
-          <ImgWrapper>
-            <ItemImg alt={pickedProduct.title} src={pickedProduct.image} />
-          </ImgWrapper>
+          </ContentWrapper>
         </ItemWrapper>
       ) : (
         <h3>{'Oops, there is no such product'}</h3>

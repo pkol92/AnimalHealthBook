@@ -1,37 +1,50 @@
 import { useParams } from 'react-router-dom';
 
-import useFetchApi, { ItemCard } from '../../server/useFetchAPI';
+import useFetchApi from '../../server/useFetchAPI';
 import { Button } from '../Button/Button';
+import { Navigation } from '../Navigation/Navigation';
 import {
   ButtonsWrapper,
+  ContentWrapper,
   ImgWrapper,
+  ItemDescription,
   ItemImg,
   ItemPrice,
   ItemTitle,
   ItemWrapper,
-} from '../ItemsList/ItemList.styles';
+} from './ItemDetails.style';
 
 export const ItemDetails = () => {
   const { id } = useParams();
-  const { data } = useFetchApi(id) as { data: ItemCard; error: boolean; loading: boolean };
+  const { data } = useFetchApi();
+  const pickedProduct = data?.find((item) => item.id === +id!);
 
   return (
-    <ItemWrapper key={data.id}>
-      <div>
-        <div>
-          <ItemTitle>{data.title}</ItemTitle>
-          <ItemPrice>{`Price: ${data.price.toFixed(2)} $`}</ItemPrice>
-          <div>{data.description}</div>
-        </div>
-        <ButtonsWrapper>
-          <Button size="medium" variant="default">
-            {'Add to card'}
-          </Button>
-        </ButtonsWrapper>
-      </div>
-      <ImgWrapper>
-        <ItemImg alt={data.title} src={data.image} />
-      </ImgWrapper>
-    </ItemWrapper>
+    <Navigation>
+      {pickedProduct ? (
+        <ItemWrapper>
+          <ImgWrapper>
+            <ItemImg alt={pickedProduct.title} src={pickedProduct.image} />
+          </ImgWrapper>
+          <ContentWrapper>
+            <div>
+              <ItemTitle>{pickedProduct.title}</ItemTitle>
+              <ItemPrice>{`Price: ${pickedProduct.price.toFixed(2)} $`}</ItemPrice>
+              <ItemDescription>{pickedProduct.description}</ItemDescription>
+            </div>
+            <ButtonsWrapper>
+              <Button size="medium" variant="default">
+                {'Add to card'}
+              </Button>
+              <Button size="medium" variant="default">
+                {'Add to wish list'}
+              </Button>
+            </ButtonsWrapper>
+          </ContentWrapper>
+        </ItemWrapper>
+      ) : (
+        <h3>{'Oops, there is no such product'}</h3>
+      )}
+    </Navigation>
   );
 };

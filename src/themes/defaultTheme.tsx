@@ -6,13 +6,15 @@ export const defaultTheme = {
     magenta: '#E6007E',
     white: '#FFFFFF',
     gray100: '#C6C6C6',
+    green: '#028d60',
     transparent: '#ffffff00',
   },
   zIndex: {
     modal: 10,
     background: -1,
+    button: 2,
   },
-  boxShadows: {},
+  boxShadows: { light: '4px 4px 8px rgba(0, 0, 0, 0.08), 0px 0px 4px rgba(0, 0, 0, 0.04)' },
   gradient: {},
   radius: {
     none: '0',

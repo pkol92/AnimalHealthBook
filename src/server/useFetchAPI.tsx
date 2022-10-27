@@ -17,17 +17,15 @@ export interface ItemCard {
 
 const URL = 'https://fakestoreapi.com/products';
 
-const useFetchApi = (id?: string) => {
-  const [data, setData] = useState<Array<ItemCard> | ItemCard>();
+const useFetchApi = () => {
+  const [data, setData] = useState<Array<ItemCard>>();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
-
-  const finalURL = id ? `${URL}/${id}` : URL;
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const { data: response } = await axios.get(finalURL);
+        const { data: response } = await axios.get(URL);
         setData(response);
         setError(false);
       } catch (err) {
@@ -38,7 +36,7 @@ const useFetchApi = (id?: string) => {
     };
 
     fetchData();
-  }, [finalURL]);
+  }, []);
 
   return { data, loading, error };
 };

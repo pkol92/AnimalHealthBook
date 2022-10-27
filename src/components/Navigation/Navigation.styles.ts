@@ -14,6 +14,7 @@ export const MenuWrapper = styled.div`
   font-size: ${({ theme }) => theme.fontSizes.xlarge};
   width: 100%;
   background-color: ${({ theme }) => theme.colors.white};
+  z-index: ${(props) => props.theme.zIndex.modal};
 `;
 
 export const NavigationWrapper = styled.div`

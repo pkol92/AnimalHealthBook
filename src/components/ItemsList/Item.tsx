@@ -39,12 +39,10 @@ const Item = ({ item }: { item: ItemCard }) => {
 
         <ItemImg alt={item.title} src={item.image} />
       </ImgWrapper>
-      <div>
-        <MainDataWrapper>
-          <ItemTitle>{item.title}</ItemTitle>
-          <ItemPrice>{`${item.price.toFixed(2)} $`}</ItemPrice>
-        </MainDataWrapper>
-      </div>
+      <MainDataWrapper>
+        <ItemTitle>{item.title}</ItemTitle>
+        <ItemPrice>{`${item.price.toFixed(2)} $`}</ItemPrice>
+      </MainDataWrapper>
     </ItemWrapper>
   );
 };

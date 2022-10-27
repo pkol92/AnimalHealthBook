@@ -6,10 +6,11 @@ export const ListWrapper = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
-  align-items: baseline;
+  align-items: flex-start;
   align-content: center;
   gap: 30px;
   padding: 20px;
+  box-sizing: border-box;
 `;
 
 export const ItemWrapper = styled.div`
@@ -17,27 +18,37 @@ export const ItemWrapper = styled.div`
   /* width: 350px; */
   flex-direction: column;
   align-items: center;
-  gap: 10px;
+  gap: 30px;
   width: 250px;
+  height: 350px;
+  box-sizing: border-box;
+  padding: 10px;
+  box-shadow: ${({ theme }) => theme.boxShadows.light};
+  justify-content: flex-start;
+  align-content: stretch;
 `;
 
 export const ImgWrapper = styled.div`
-  width: 200px;
+  width: 100%;
   height: 200px;
+  box-sizing: border-box;
   display: flex;
   position: relative;
 `;
 
 export const ItemImg = styled.img`
   width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 10px;
   object-fit: contain;
 `;
 
-export const ItemTitle = styled.h5`
+export const ItemTitle = styled.div`
   display: flex;
 `;
 
-export const ItemPrice = styled.h4`
+export const ItemPrice = styled.div`
   display: flex;
   color: ${({ theme }) => theme.colors.magenta};
 `;
@@ -54,6 +65,7 @@ export const ButtonsWrapper = styled.div<{ isHidden: boolean }>`
   height: 200px;
   background-color: rgb(0 72 153 / 42%);
   z-index: ${({ theme }) => theme.zIndex.button};
+  box-sizing: border-box;
 `;
 
 export const MainDataWrapper = styled.div`

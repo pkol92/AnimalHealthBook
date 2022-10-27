@@ -14,7 +14,7 @@ export const defaultTheme = {
     background: -1,
     button: 2,
   },
-  boxShadows: {},
+  boxShadows: { light: '4px 4px 8px rgba(0, 0, 0, 0.08), 0px 0px 4px rgba(0, 0, 0, 0.04)' },
   gradient: {},
   radius: {
     none: '0',
